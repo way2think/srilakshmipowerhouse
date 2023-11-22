@@ -15153,9 +15153,15 @@ header.header-four {
 }
 @media only screen and (max-width: 767px) {
   header.header-four .header-left .logo-area img {
-    max-width: 120px;
+    max-width: 50px;
+  }
+  .works-done{
+    text-align: center;
+    /* display: flex;
+    justify-content: center; */
   }
 }
+
 header.header-four .nav-area .main-nav-one ul li.has-dropdown a.nav-link {
   color: #fff;
 }
