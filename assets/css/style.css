@@ -669,6 +669,9 @@ ol ul {
   .rts-section-gapBottom {
     padding-bottom: 60px;
   }
+  .Webaac-logo {
+    max-width: 20%;
+  }
 }
 
 .rts-section-gapTop {
@@ -15155,7 +15158,7 @@ header.header-four {
   header.header-four .header-left .logo-area img {
     max-width: 50px;
   }
-  .works-done{
+  .works-done {
     text-align: center;
     /* display: flex;
     justify-content: center; */
@@ -18520,11 +18523,10 @@ nav ul li a {
     justify-content: flex-start;
     padding-right: 0;
   }
-  
 
-.about-thumbnail {
+  .about-thumbnail {
     margin-bottom: 20px;
-}
+  }
 }
 @media only screen and (max-width: 767px) {
   .rts-about-left-image-area {
@@ -18588,7 +18590,7 @@ nav ul li a {
 .single-about-content-solar .left-area-wrapper img {
   width: 100%;
   padding-right: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .single-about-content-solar .single-ckeck-wrapper {
   display: flex;
@@ -18609,7 +18611,7 @@ nav ul li a {
   margin-top: 30px;
 }
 
-.fa-play{
+.fa-play {
   font-size: 30px;
 }
 
@@ -22004,7 +22006,6 @@ p {
 
 .word-line {
   overflow: hidden;
- 
 }
 
 .title {
@@ -23932,15 +23933,15 @@ p {
   justify-content: center;
 }
 
-.Webaac-logo{
+.Webaac-logo {
   max-width: 8%;
 }
-.right{
+.right {
   display: flex;
   justify-content: end;
   align-items: center;
 }
-.rightpara{
+.rightpara {
   margin-bottom: 0;
   margin-left: 10px;
 }
@@ -23949,8 +23950,11 @@ p {
   margin-bottom: 10px;
 } */
 
-.webaacin{
-  color: var(--color-primary);
+.webaacin {
+  color: #e06d2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .rts-footer-one.footer-bg-two .copyright-area-two.five {
@@ -29090,6 +29094,14 @@ form.appoinment-form .input-half-wrapper .single-input input {
   color: #454545;
   background: #f7f7f7;
 }
+.footer-logo{
+  margin-bottom: 0;
+  text-align: center;
+}
+.footer-logo1{
+  margin-bottom: 0;
+  text-align: center;
+}
 
 .woocommerce-checkout-review-order .button {
   border-radius: 5px;
@@ -29425,6 +29437,27 @@ edit .quantity-edit button {
 @media only screen and (max-width: 767px) {
   .cart-bar {
     width: 310px;
+  }
+  .Webaac-logo{
+    max-width: 20%;
+  }
+  .right{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .footer-logo{
+    margin-bottom: 0;
+  }
+  .footer-logo1{
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .rightpara{
+    text-align: center;
+  }
+  .rts-footer-one.footer-bg-two .copyright-area-two .left p{
+    margin-bottom: 20px;
   }
 }
 
