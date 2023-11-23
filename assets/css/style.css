@@ -16082,7 +16082,7 @@ nav ul li a {
 }
 
 .bg-breadcrumb {
-  background-image: url(../images/banner/breadcrumb/banner2.jpg);
+  background-image: url(../images/banner/breadcrumb/banner2.png);
 }
 
 .banner-one-swiper--wrapper-area .banner-main-wrapper-one .pre-title {
@@ -23938,6 +23938,11 @@ p {
   margin-bottom: 0;
   margin-left: 10px;
 }
+
+.webaacin{
+  color: var(--color-primary);
+}
+
 .rts-footer-one.footer-bg-two .copyright-area-two.five {
   justify-content: space-between;
 }
