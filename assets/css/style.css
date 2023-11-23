@@ -18603,6 +18603,10 @@ nav ul li a {
   margin-top: 30px;
 }
 
+.fa-play{
+  font-size: 30px;
+}
+
 .vedio-area-start {
   position: relative;
   margin-top: 30px;
@@ -23920,6 +23924,19 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.Webaac-logo{
+  max-width: 8%;
+}
+.right{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.rightpara{
+  margin-bottom: 0;
+  margin-left: 10px;
 }
 .rts-footer-one.footer-bg-two .copyright-area-two.five {
   justify-content: space-between;
