@@ -18520,10 +18520,16 @@ nav ul li a {
     justify-content: flex-start;
     padding-right: 0;
   }
+  
+
+.about-thumbnail {
+    margin-bottom: 20px;
+}
 }
 @media only screen and (max-width: 767px) {
   .rts-about-left-image-area {
     padding-right: 0;
+    margin-bottom: 20px;
   }
 }
 .rts-about-left-image-area .small-image-area {
@@ -23938,6 +23944,10 @@ p {
   margin-bottom: 0;
   margin-left: 10px;
 }
+
+/* .about-thumbnail{
+  margin-bottom: 10px;
+} */
 
 .webaacin{
   color: var(--color-primary);
