@@ -379,20 +379,17 @@
                 <h2 class="title">Let’s Get in Touch</h2>
               </div>
               <div id="form-messages"></div>
-              <form
-                id="contact-form"
-                action="mailer.php"
-                method="post"
-                class="contact-page-form mt--30"
-              >
+              <form id="contact-form" class="contact-page-form mt--30">
                 <div class="name-email-wraper">
                   <input
+                    id="name"
                     name="name"
                     type="text"
                     placeholder="Your Name"
                     required
                   />
                   <input
+                    id="email"
                     name="email"
                     type="email"
                     placeholder="Email Address"
@@ -401,15 +398,24 @@
                 </div>
                 <input
                   type="text"
+                  id="subject"
                   name="subject"
                   placeholder="Select Subject"
+                  required
                 />
                 <textarea
+                  id="message"
                   name="message"
                   placeholder="Type Your Message"
                   required
                 ></textarea>
-                <button class="rts-btn btn-primary">Send Message</button>
+                <button
+                  type="button"
+                  class="rts-btn btn-primary"
+                  onclick="sendEmail()"
+                >
+                  Send Message
+                </button>
               </form>
             </div>
           </div>
@@ -464,7 +470,10 @@
                         </a>
                       </li> -->
                       <li>
-                        <a href="mailto:srilakshmipowerhouse@gmail.com" target="_blank" >
+                        <a
+                          href="mailto:srilakshmipowerhouse@gmail.com"
+                          target="_blank"
+                        >
                           <i class="fa-brands fa-google"></i>
                         </a>
                       </li>
@@ -767,5 +776,56 @@
 
     <script src="assets/js/main.js"></script>
     <!-- header style two End -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("DcDFg_ZPthgfOPzdk");
+      })();
+    </script>
+    <script type="text/javascript">
+      const sendEmail = () => {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+        console.log(name, email, subject, message);
+
+        const templateParams = {
+          from_name: "Sri Lakshmi Power House Website",
+          to_name: "Sri Lakshmi Power House - Admin",
+          reply_to: "srilakshmipowerhouse@gmail.com",
+          name: name,
+          email: email,
+          subject: subject,
+          message: message,
+        };
+        // console.log("email: ", email, isValid);
+        emailjs
+          .send(
+            "service_nudduz8",
+            "template_j18g00c",
+            templateParams,
+            "DcDFg_ZPthgfOPzdk" // D2kbT-B5keOM5qWXb
+          )
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response.status, response.text);
+              alert("Thank you for contacting us, we will reach you asap!!!");
+              document.getElementById("name").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("subject").value = "";
+              document.getElementById("message").value = "";
+              window.location.reload();
+            },
+            function (error) {
+              console.log("FAILED...", error);
+            }
+          )
+          .catch((e) => console.log(e));
+      };
+    </script>
   </body>
 </html>
