@@ -23778,6 +23778,7 @@ p {
   align-items: flex-start;
   gap: 136px;
   justify-content: space-between;
+  
 }
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .single-footer-one-wrapper {
@@ -23800,6 +23801,8 @@ p {
 @media only screen and (max-width: 767px) {
   .single-footer-one-wrapper .single-footer-component {
     flex-basis: 100%;
+
+
   }
 }
 .single-footer-one-wrapper .single-footer-component.first {
