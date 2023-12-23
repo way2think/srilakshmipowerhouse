@@ -201,7 +201,7 @@
               </a>
             </li> -->
             <li>
-              <a href="mailto:srilakshmipowerhouse@gmail.com" target="_blank" >
+              <a href="mailto:srilakshmipowerhouse@gmail.com" target="_blank">
                 <i class="fa-brands fa-google"></i>
               </a>
             </li>
@@ -463,7 +463,10 @@
                 </a>
                 <div class="body mt--45">
                   <p class="disc">
-                    18 years experience in our industry and online ups and inverter and solar system like all type batteries and technical support electric wiring and most importantly technology upgrades
+                    18 years experience in our industry and online ups and
+                    inverter and solar system like all type batteries and
+                    technical support electric wiring and most importantly
+                    technology upgrades
                   </p>
                   <div class="rts-social-style-one">
                     <ul>
@@ -789,6 +792,14 @@
       })();
     </script>
     <script type="text/javascript">
+      function isValidEmail(email) {
+        // Regular expression for basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Test the email against the regular expression
+        return emailRegex.test(email);
+      }
+
       const sendEmail = () => {
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
@@ -796,38 +807,44 @@
         const message = document.getElementById("message").value;
         console.log(name, email, subject, message);
 
-        const templateParams = {
-          from_name: "Sri Lakshmi Power House Website",
-          to_name: "Sri Lakshmi Power House - Admin",
-          reply_to: "srilakshmipowerhouse@gmail.com",
-          name: name,
-          email: email,
-          subject: subject,
-          message: message,
-        };
-        // console.log("email: ", email, isValid);
-        emailjs
-          .send(
-            "service_nudduz8",
-            "template_j18g00c",
-            templateParams,
-            "DcDFg_ZPthgfOPzdk" // D2kbT-B5keOM5qWXb
-          )
-          .then(
-            function (response) {
-              console.log("SUCCESS!", response.status, response.text);
-              alert("Thank you for contacting us, we will reach you asap!!!");
-              document.getElementById("name").value = "";
-              document.getElementById("email").value = "";
-              document.getElementById("subject").value = "";
-              document.getElementById("message").value = "";
-              window.location.reload();
-            },
-            function (error) {
-              console.log("FAILED...", error);
-            }
-          )
-          .catch((e) => console.log(e));
+        if (name && isValidEmail(email) && subject && message) {
+          const templateParams = {
+            from_name: "Sri Lakshmi Power House Website",
+            to_name: "Sri Lakshmi Power House - Admin",
+            reply_to: "srilakshmipowerhouse@gmail.com",
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
+          };
+          // console.log("email: ", email, isValid);
+          emailjs
+            .send(
+              "service_nudduz8",
+              "template_j18g00c",
+              templateParams,
+              "DcDFg_ZPthgfOPzdk" // D2kbT-B5keOM5qWXb
+            )
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                alert("Thank you for contacting us, we will reach you asap!!!");
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("subject").value = "";
+                document.getElementById("message").value = "";
+                window.location.reload();
+                document.body.scrollTop =
+                  document.documentElement.scrollTop = 0;
+              },
+              function (error) {
+                console.log("FAILED...", error);
+              }
+            )
+            .catch((e) => console.log(e));
+        } else {
+          alert("Details provided is invalid!!!");
+        }
       };
     </script>
   </body>

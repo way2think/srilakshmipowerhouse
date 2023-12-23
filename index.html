@@ -888,26 +888,29 @@
                 Love to hear from you <br />
                 <span>Get in touch!</span>
               </h2>
-              <form action="#">
+              <form>
                 <div class="single-input-area">
                   <label for="name">Name*</label>
-                  <input
-                    type="text"
-                    value="Name"
-                    placeholder="Name"
-                  />
+                  <input id="name" type="text" placeholder="Name" />
                 </div>
                 <div class="single-input-area">
-                  <label for="name">Email*</label>
-                  <input type="email" placeholder="Email" />
+                  <label for="email">Email*</label>
+                  <input id="email" type="email" placeholder="Email" />
                 </div>
                 <div class="single-input-area">
-                  <label for="name">Message*</label>
+                  <label for="message">Message*</label>
                   <textarea
+                    id="message"
                     placeholder="Let tell us about your projects"
                   ></textarea>
                 </div>
-                <button class="rts-btn btn-primary">Send Message</button>
+                <button
+                  class="rts-btn btn-primary"
+                  type="button"
+                  onclick="sendEmail()"
+                >
+                  Send Message
+                </button>
               </form>
             </div>
           </div>
@@ -956,10 +959,11 @@
               <a href="#"
                 ><img src="assets/images/brand/rotary.svg" alt="brand_start"
               /></a> -->
-             
             </div>
-           
-            <h3 style="text-align: center;margin-top: 4%;">Our Valuable Clients</h3>
+
+            <h3 style="text-align: center; margin-top: 4%">
+              Our Valuable Clients
+            </h3>
           </div>
         </div>
       </div>
@@ -1385,5 +1389,67 @@
 
     <script src="assets/js/main.js"></script>
     <!-- header style two End -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("DcDFg_ZPthgfOPzdk");
+      })();
+    </script>
+    <script type="text/javascript">
+      function isValidEmail(email) {
+        // Regular expression for basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Test the email against the regular expression
+        return emailRegex.test(email);
+      }
+
+      const sendEmail = () => {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+        console.log(name, email, message);
+
+        if (name && isValidEmail(email) && message) {
+          const templateParams = {
+            from_name: "Sri Lakshmi Power House Website",
+            to_name: "Sri Lakshmi Power House - Admin",
+            reply_to: "srilakshmipowerhouse@gmail.com",
+            name: name,
+            email: email,
+            subject: "New message from Sri Lakshmi Power House Website",
+            message: message,
+          };
+          // console.log("email: ", email, isValid);
+          emailjs
+            .send(
+              "service_nudduz8",
+              "template_j18g00c",
+              templateParams,
+              "DcDFg_ZPthgfOPzdk" // D2kbT-B5keOM5qWXb
+            )
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                alert("Thank you for contacting us, we will reach you asap!!!");
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
+                window.location.reload();
+                document.body.scrollTop =
+                  document.documentElement.scrollTop = 0;
+              },
+              function (error) {
+                console.log("FAILED...", error);
+              }
+            )
+            .catch((e) => console.log(e));
+        } else {
+        }
+      };
+    </script>
   </body>
 </html>
